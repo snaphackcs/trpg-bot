@@ -1,0 +1,25 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "schema/schema",
+    "type": "object",
+    "properties": {
+        "cards": {
+            "type": ["array", "string"]
+        },
+        "roles": {
+            "type": ["array", "string"]
+        },
+        "events": {
+            "type": ["array", "string"]
+        },
+        "map": {
+            "type": ["object", "string"]
+        }
+    },
+    "required": [
+        "cards",
+        "roles",
+        "events",
+        "map"
+    ]
+}
