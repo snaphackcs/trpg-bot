@@ -4,11 +4,12 @@ import json
 
 
 class PaoTuan:
+    """
+    Paotuan
+    =====================
+    
+    """
     def __init__(self, member: List[str], config = "config/config.config.json"):
-        """
-        # Paotuan
-
-        """
         self.member = member
 
     def add_member(self, new_member):
