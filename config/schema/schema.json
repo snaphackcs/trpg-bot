@@ -4,16 +4,33 @@
     "type": "object",
     "properties": {
         "cards": {
-            "type": ["array", "string"]
+            "type": [
+                "array",
+                "string"
+            ],
+            "pattern": ".*/cards.json"
         },
         "roles": {
-            "type": ["array", "string"]
+            "type": [
+                "array",
+                "string"
+            ],
+            "pattern": ".*/roles.json"
         },
         "events": {
-            "type": ["array", "string"]
+            "type": [
+                "array",
+                "string"
+            ],
+            "pattern": ".*/events.json"
         },
         "map": {
-            "type": ["object", "string"]
+            "type": [
+                "object",
+                "string"
+            ]
+            ,
+            "pattern": ".*/map.json"
         }
     },
     "required": [

@@ -1,7 +1,7 @@
-from lib.paotuan import PaoTuan
+from lib import paotuan
 
 def main():
-    paotuan = PaoTuan(["aa", "bb"], default)
+    print (paotuan.load_config("/config.json"))
 
 if __name__ == "__main__":
     main()
