@@ -1,7 +1,11 @@
+from pprint import pprint
+
 from lib import paotuan
+from lib.player import Player
 
 def main():
-    print (paotuan.load_config("/config.json"))
+    config = paotuan.PaoTuan([Player("shabi")])
+    config.prepare("shabi")
 
 if __name__ == "__main__":
     main()

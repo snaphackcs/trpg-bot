@@ -2,7 +2,12 @@
     "$schema": "http://json-schema.org/draft-07/schema",
     "$id": "schema/schema-map.json",
     "type":"object",
+    "properties": {
+        "map": {
+            "type":"object"
+        }
+    },
     "required": [
-        "home"
+        "map"
     ]
 }
