@@ -1,5 +1,6 @@
 from typing import List, Any, Dict
 from pprint import pprint
+import random
 import jsonschema
 import json
 import os
@@ -22,9 +23,6 @@ class PaoTuan:
     - cards
         - 类型：list[Card]
         - 功能：储存游戏中可用的卡牌类型
-    - map
-        - 类型：dict[Location]
-        - 功能：构建游戏当中的地图结构
     - 其他（要是有的话）
     """
 
@@ -37,12 +35,19 @@ class PaoTuan:
         self.events = cfg["events"]
         self.cards = cfg["cards"]
         self.roles = cfg["roles"]
-        self.map = cfg["map"]
 
     def prepare(self, id: str):
         self.players[id].set_ready()
         pprint(self.players)
         print(self.players[id].is_ready())
+
+    def roll(self, d:int, n:int):
+        result = 0
+        for i in range(n):
+            result = random.randint(1, d)
+        return result
+
+
 
 
 def load_config(config_file: str):
@@ -58,15 +63,23 @@ def load_config(config_file: str):
     if isinstance(cfg["cards"], str):
         with open(path+cfg["cards"], 'r', encoding='utf-8') as game_cards:
             cfg["cards"] = json.load(game_cards)["cards"]
+        if not validate(cfg["cards"]):
+            print("Error: invalid card configuration file, please try another")
+            return {}
+
     if isinstance(cfg["events"], str):
         with open(path+cfg["events"], 'r', encoding='utf-8') as game_events:
             cfg["events"] = json.load(game_events)["events"]
+        if not validate(cfg["events"]):
+            print("Error: invalid events configuration file, please try another")
+            return {}
+
     if isinstance(cfg["roles"], str):
         with open(path+cfg["roles"], 'r', encoding='utf-8') as game_roles:
             cfg["roles"] = json.load(game_roles)["roles"]
-    if isinstance(cfg["map"], str):
-        with open(path+cfg["map"], 'r', encoding='utf-8') as game_map:
-            cfg["map"] = json.load(game_map)["map"]
+        if not validate(cfg["roles"]):
+            print("Error: invalid roles configuration file, please try another")
+            return {}
 
     return cfg
 

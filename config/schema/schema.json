@@ -23,20 +23,11 @@
                 "string"
             ],
             "pattern": ".*/events.json"
-        },
-        "map": {
-            "type": [
-                "object",
-                "string"
-            ]
-            ,
-            "pattern": ".*/map.json"
         }
     },
     "required": [
         "cards",
         "roles",
-        "events",
-        "map"
+        "events"
     ]
 }

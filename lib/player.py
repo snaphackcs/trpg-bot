@@ -6,9 +6,9 @@ class Player:
     ================================
     """
 
-    def __init__(self, player_id: str, player_role: str = "artist"):
+    def __init__(self, player_id: str):
         self.id = player_id
-        self.role = player_role
+        self.role = None
         self.ready = False
 
     def get_id(self):
